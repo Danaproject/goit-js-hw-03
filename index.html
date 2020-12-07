@@ -6,28 +6,38 @@
     <title>js-hw-03</title>
 </head>
 <body>
-    <!-- <form action="#">
+    
     <label>Enter the amount
-        <input type="number" name="amount">
-        <button type="submit">DEPOSIT</button>
-        <button type="submit">WITHDRAW</button>
+        <input id="amount" type="number" name="amount">
+        <button data-product="deposit-button" type="submit">DEPOSIT</button>
+        <button data-product="withdraw-button" type="submit">WITHDRAW</button>
     </label><br><br>
-    <button>Show balance</button><br><br>
+    
+    <button data-product="balance-button">Show balance</button>
+    <p>Balance:</p>
+    <p id="balance-field"></p>
+
     <label>Enter the transaction id
-        <input type="numbet" name="details">
-        <button type="submit">Get details</button>
-    </label><br><br>
-    <label for="type">Select the transaction type
+        <input id="details" type="number" name="details">
+        <button data-product="details-button" type="submit">Get details</button>
+    </label>
+    <p>Transaction:</p>
+    <div id="details-field"></div><br>
+
+    <label>Select the transaction type
         <select name="type" id="type">
             <option value=""></option>
             <option value="deposit">DEPOSIT</option>
             <option value="withdraw">WITHDRAW</option>
         </select>
-        <button type="submit">Get total</button>
+        <button data-product="total-button" type="submit">Get total</button>
     </label>
-    </form> -->
-    
-   
+    <p>Total:</p>
+    <p id="total-field"></p>
+
+    <p>Transaction history:</p>
+    <div id="transactions-table"></div>
+
 
     <script src="js/task-01.js" type="module"></script>
     <script src="js/task-02.js" type="module"></script>
@@ -39,6 +49,8 @@
     <script src="js/task-05.js" type="module"></script>
     <script src="js/task-06.js" type="module"></script>
     <script src="js/task-07.js" type="module"></script>
-    
+    <script src="js/task-07-1.js" type="module"></script>
+    <script src="js/view-07-1.js" type="module"></script>
+
 </body>
 </html>
