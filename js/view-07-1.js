@@ -11,8 +11,7 @@ document.querySelector("button[data-product='deposit-button']").addEventListener
 
 document.querySelector("button[data-product='withdraw-button']").addEventListener('click', () => {
     let inputValue = document.getElementById("amount").value;
-    account.withdraw(inputValue);
-    
+    if (account.withdraw(inputValue) === -1) { alert('There are not enough funds in the account.') }
     console.table(account.transactions);
     document.getElementById("transactions-table").innerHTML = account.getTransactionHTML();
 });
@@ -27,9 +26,12 @@ document.querySelector("button[data-product='balance-button']").addEventListener
 document.querySelector("button[data-product='details-button']").addEventListener('click', () => {
     let inputValue = document.getElementById("details").value;
     let tr = account.getTransactionDetails(inputValue);
-    document.getElementById("details-field").innerHTML = String(`<table border="1"><tr><td>id</td><td>amount</td><td>type</td></tr><tr><td>${tr.id}</td><td>${tr.amount}</td><td>${tr.type}</td></tr></table>`);
-    console.log(tr);
-    document.getElementById("transactions-table").innerHTML = account.getTransactionHTML();
+    if (tr === -1) {alert('No such transaction!');}
+    else {
+        document.getElementById("details-field").innerHTML = String(`<table border="1"><tr><td>id</td><td>amount</td><td>type</td></tr><tr><td>${tr.id}</td><td>${tr.amount}</td><td>${tr.type}</td></tr></table>`);
+        console.log(tr);
+        document.getElementById("transactions-table").innerHTML = account.getTransactionHTML();
+    }
 });
 document.querySelector("button[data-product='total-button']").addEventListener('click', () => {
     let inputValue = document.getElementById("type").value;

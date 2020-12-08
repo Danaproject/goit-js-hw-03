@@ -14,7 +14,10 @@ const account = {
         return this.transactions.push(this.createTransaction(Number(amount), TransactionType.DEPOSIT));
     },
     withdraw(amount) {
-        return this.transactions.push(this.createTransaction(Number(amount), TransactionType.WITHDRAW));
+        if ((this.getBalance() - amount) < 0) {
+             return -1;
+        }
+        return this.transactions.push(this.createTransaction(Number(amount), TransactionType.WITHDRAW));;
     },
     getBalance() {
         let balance=0;
@@ -28,6 +31,7 @@ const account = {
         for (const transaction of this.transactions) {
             if (transaction.id === Number(id)) { return transaction; }
         }
+        return -1;
     },
     getTransactionTotal(type) {
         let sum = 0;
