@@ -16,7 +16,6 @@ const account = {
     withdraw(amount) {
          if ((this.getBalance() - amount) < 0) {
              return 'There are not enough funds in the account.';
-        
         }
         return this.transactions.push(this.createTransaction(amount, TransactionType.WITHDRAW));
     },
@@ -32,9 +31,7 @@ const account = {
         for (const transaction of this.transactions) {
             if (transaction.id === id) { return transaction; }
         }
-        return 'No such transaction!';
-      
-        
+        return 'No such transaction!';  
     },
     getTransactionTotal(type) {
         let sum = 0;
@@ -42,8 +39,7 @@ const account = {
             if (transaction.type === type) { sum += transaction.amount; }
         }
         return sum;
-    },
-    
+    }, 
 }
 
 account.deposit(100);
